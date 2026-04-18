@@ -1,0 +1,172 @@
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\bin\Debug\net9.0\appsettings.json
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.staticwebassets.endpoints.json
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.exe
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.deps.json
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.runtimeconfig.json
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.dll
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.pdb
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\bin\Debug\net9.0\Enums.NET.dll
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\bin\Debug\net9.0\jose-jwt.dll
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\bin\Debug\net9.0\Microsoft.OpenApi.dll
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\bin\Debug\net9.0\StandardSocketsHttpHandler.dll
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\bin\Debug\net9.0\TestableIO.System.IO.Abstractions.dll
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\bin\Debug\net9.0\TestableIO.System.IO.Abstractions.Wrappers.dll
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\bin\Debug\net9.0\Testably.Abstractions.FileSystem.Interface.dll
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\bin\Debug\net9.0\Vonage.dll
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.csproj.AssemblyReference.cache
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.AssemblyInfoInputs.cache
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.AssemblyInfo.cs
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.csproj.CoreCompileInputs.cache
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\scopedcss\bundle\VonageVideoApp.Api.styles.css
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\VonageVi.C69648BA.Up2Date
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.dll
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\refint\VonageVideoApp.Api.dll
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.pdb
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.genruntimeconfig.cache
+C:\Users\hp\.gemini\antigravity\scratch\vonage-video-app\VonageVideoApp.Api\obj\Debug\net9.0\ref\VonageVideoApp.Api.dll
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.csproj.AssemblyReference.cache
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\rpswa.dswa.cache.json
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.GeneratedMSBuildEditorConfig.editorconfig
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.AssemblyInfoInputs.cache
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.AssemblyInfo.cs
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.csproj.CoreCompileInputs.cache
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.MvcApplicationPartsAssemblyInfo.cs
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.MvcApplicationPartsAssemblyInfo.cache
+D:\videoapp\VonageVideoApp.Api\bin\Debug\net9.0\appsettings.json
+D:\videoapp\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.staticwebassets.endpoints.json
+D:\videoapp\VonageVideoApp.Api\bin\Debug\net9.0\private.key
+D:\videoapp\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.exe
+D:\videoapp\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.deps.json
+D:\videoapp\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.runtimeconfig.json
+D:\videoapp\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.dll
+D:\videoapp\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.pdb
+D:\videoapp\VonageVideoApp.Api\bin\Debug\net9.0\Enums.NET.dll
+D:\videoapp\VonageVideoApp.Api\bin\Debug\net9.0\jose-jwt.dll
+D:\videoapp\VonageVideoApp.Api\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+D:\videoapp\VonageVideoApp.Api\bin\Debug\net9.0\Microsoft.OpenApi.dll
+D:\videoapp\VonageVideoApp.Api\bin\Debug\net9.0\Newtonsoft.Json.dll
+D:\videoapp\VonageVideoApp.Api\bin\Debug\net9.0\StandardSocketsHttpHandler.dll
+D:\videoapp\VonageVideoApp.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\videoapp\VonageVideoApp.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\videoapp\VonageVideoApp.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\videoapp\VonageVideoApp.Api\bin\Debug\net9.0\TestableIO.System.IO.Abstractions.dll
+D:\videoapp\VonageVideoApp.Api\bin\Debug\net9.0\TestableIO.System.IO.Abstractions.Wrappers.dll
+D:\videoapp\VonageVideoApp.Api\bin\Debug\net9.0\Testably.Abstractions.FileSystem.Interface.dll
+D:\videoapp\VonageVideoApp.Api\bin\Debug\net9.0\Vonage.dll
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\rjimswa.dswa.cache.json
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\scopedcss\bundle\VonageVideoApp.Api.styles.css
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.build.json
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.build.json.cache
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.development.json
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\VonageVi.C69648BA.Up2Date
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.dll
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\refint\VonageVideoApp.Api.dll
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.pdb
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.genruntimeconfig.cache
+D:\videoapp\VonageVideoApp.Api\obj\Debug\net9.0\ref\VonageVideoApp.Api.dll
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\bin\Debug\net9.0\appsettings.json
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.staticwebassets.endpoints.json
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\bin\Debug\net9.0\private.key
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.exe
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.deps.json
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.runtimeconfig.json
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.dll
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.pdb
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\bin\Debug\net9.0\Enums.NET.dll
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\bin\Debug\net9.0\jose-jwt.dll
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\bin\Debug\net9.0\Microsoft.OpenApi.dll
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\bin\Debug\net9.0\StandardSocketsHttpHandler.dll
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\bin\Debug\net9.0\TestableIO.System.IO.Abstractions.dll
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\bin\Debug\net9.0\TestableIO.System.IO.Abstractions.Wrappers.dll
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\bin\Debug\net9.0\Testably.Abstractions.FileSystem.Interface.dll
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\bin\Debug\net9.0\Vonage.dll
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.csproj.AssemblyReference.cache
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.AssemblyInfoInputs.cache
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.AssemblyInfo.cs
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.csproj.CoreCompileInputs.cache
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\scopedcss\bundle\VonageVideoApp.Api.styles.css
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVi.C69648BA.Up2Date
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.dll
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\refint\VonageVideoApp.Api.dll
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.pdb
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.genruntimeconfig.cache
+C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\ref\VonageVideoApp.Api.dll
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.dll
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\refint\VonageVideoApp.Api.dll
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.pdb
+D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\appsettings.json
+D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.staticwebassets.endpoints.json
+D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\private.key
+D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.exe
+D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.deps.json
+D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.runtimeconfig.json
+D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.dll
+D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.pdb
+D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\Enums.NET.dll
+D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\jose-jwt.dll
+D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\Microsoft.OpenApi.dll
+D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\Newtonsoft.Json.dll
+D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\StandardSocketsHttpHandler.dll
+D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\TestableIO.System.IO.Abstractions.dll
+D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\TestableIO.System.IO.Abstractions.Wrappers.dll
+D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\Testably.Abstractions.FileSystem.Interface.dll
+D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\Vonage.dll
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.csproj.AssemblyReference.cache
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\rpswa.dswa.cache.json
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.GeneratedMSBuildEditorConfig.editorconfig
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.AssemblyInfoInputs.cache
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.AssemblyInfo.cs
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.csproj.CoreCompileInputs.cache
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.MvcApplicationPartsAssemblyInfo.cs
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.MvcApplicationPartsAssemblyInfo.cache
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\rjimswa.dswa.cache.json
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\scopedcss\bundle\VonageVideoApp.Api.styles.css
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.build.json
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.build.json.cache
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.development.json
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVi.C69648BA.Up2Date
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.genruntimeconfig.cache
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\ref\VonageVideoApp.Api.dll
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

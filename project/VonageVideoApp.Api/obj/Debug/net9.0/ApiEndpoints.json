@@ -1,0 +1,50 @@
+[
+  {
+    "ContainingType": "VonageVideoApp.Api.Controllers.VideoController",
+    "Method": "CreateSession",
+    "RelativePath": "api/Video/session",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "VonageVideoApp.Api.Controllers.VideoController\u002BSessionRequest",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VonageVideoApp.Api.Controllers.VideoController",
+    "Method": "StartRecording",
+    "RelativePath": "api/Video/start-recording",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "VonageVideoApp.Api.Controllers.VideoController\u002BRecordingRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VonageVideoApp.Api.Controllers.VideoController",
+    "Method": "StopRecording",
+    "RelativePath": "api/Video/stop-recording",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "VonageVideoApp.Api.Controllers.VideoController\u002BStopRecordingRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

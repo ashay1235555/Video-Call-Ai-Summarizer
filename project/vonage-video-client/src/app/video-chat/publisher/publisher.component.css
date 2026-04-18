@@ -1,0 +1,156 @@
+/* PiP (Picture in Picture) Self-Video */
+.publisher-container {
+  position: absolute;
+  bottom: 100px;
+  right: 24px;
+  width: 280px;
+  aspect-ratio: 16/9;
+  z-index: 100;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #1a1b26;
+  border: 1px solid var(--border-active);
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.publisher-container:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.publisher-video {
+  width: 100%;
+  height: 100%;
+}
+
+.video-off-overlay {
+  position: absolute;
+  inset: 0;
+  background: #1a1b26;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.mini-avatar {
+  width: 48px;
+  height: 48px;
+  background: var(--bg-glass);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.self-label {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: white;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ═══════════════════════════════
+   CONTROL BAR
+═══════════════════════════════ */
+.controls-wrapper {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 110;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  pointer-events: none;
+}
+
+.control-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: rgba(18, 18, 26, 0.85);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-active);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  pointer-events: auto;
+  animation: barSlideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes barSlideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.control-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-glass);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.control-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.control-btn:hover {
+  background: var(--bg-glass-hover);
+  transform: translateY(-2px);
+}
+
+.control-btn.muted,
+.control-btn.disabled {
+  background: var(--accent-red);
+  color: white;
+}
+
+.control-btn.active-share {
+  background: var(--accent-blue);
+  box-shadow: 0 0 15px var(--accent-blue-glow);
+}
+
+.control-btn.end-call {
+  background: var(--accent-red);
+  width: 56px;
+  border-radius: 20px;
+}
+
+.control-btn.end-call:hover {
+  background: #d32f2f;
+  box-shadow: 0 0 20px var(--accent-red-glow);
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+  margin: 0 4px;
+}

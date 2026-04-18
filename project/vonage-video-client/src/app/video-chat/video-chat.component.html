@@ -1,0 +1,284 @@
+<!-- ═══════════════════════════════════════════
+     INCOMING CALL OVERLAY
+════════════════════════════════════════════ -->
+<div class="incoming-call-overlay" *ngIf="incomingCall">
+  <!-- Animated background rings -->
+  <div class="ring-container">
+    <div class="ring ring-1"></div>
+    <div class="ring ring-2"></div>
+    <div class="ring ring-3"></div>
+    <div class="avatar-wrapper">
+      <div class="avatar">
+        <span class="avatar-initials">{{ getInitials(callerName) }}</span>
+      </div>
+      <div class="avatar-pulse"></div>
+    </div>
+  </div>
+
+  <div class="caller-info">
+    <p class="incoming-label">Incoming Video Call</p>
+    <h2 class="caller-name">{{ callerName }}</h2>
+    <p class="caller-role">{{ callerRole }}</p>
+  </div>
+
+  <div class="call-actions">
+    <div class="call-action-item">
+      <button class="call-btn decline-btn" (click)="declineCall()">
+        <!-- Red phone hang up -->
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+        </svg>
+      </button>
+      <span class="action-label decline-label">Decline</span>
+    </div>
+
+    <div class="call-action-item">
+      <button class="call-btn accept-btn" (click)="acceptCall()">
+        <!-- Green phone accept -->
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+        </svg>
+      </button>
+      <span class="action-label accept-label">Accept</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     LOGIN / SETUP SCREEN
+════════════════════════════════════════════ -->
+<div class="idle-screen" *ngIf="!isLoggedIn">
+  <div class="idle-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+    </svg>
+  </div>
+  <h2 class="idle-title">Welcome</h2>
+  <p class="idle-sub">Enter your username to get started</p>
+  <div class="input-group vertical">
+    <input type="text" [(ngModel)]="username" placeholder="Your username" class="user-input">
+    <div class="role-selection">
+      <label class="role-option">
+        <input type="radio" [(ngModel)]="userRole" value="provider">
+        <span>Provider</span>
+      </label>
+      <label class="role-option">
+        <input type="radio" [(ngModel)]="userRole" value="patient">
+        <span>Patient</span>
+      </label>
+    </div>
+    <button class="join-btn w-100" (click)="login()">Login</button>
+  </div>
+  <p *ngIf="hangUpMessage" class="hangup-msg">{{ hangUpMessage }}</p>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     IDLE / CALLING SCREEN
+════════════════════════════════════════════ -->
+<div class="idle-screen" *ngIf="isLoggedIn && !incomingCall && !session">
+  <!-- Identity Badge -->
+  <div class="user-identity-badge">
+    <span class="dot online"></span>
+    Logged in as: <strong>{{ username }}</strong>
+  </div>
+
+  <div class="idle-icon" [class.pulse]="isCalling">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+    </svg>
+  </div>
+  
+  <ng-container *ngIf="!isCalling">
+    <h2 class="idle-title">Ready to Connect</h2>
+    
+    <!-- Online Users List -->
+    <div class="online-list" *ngIf="onlineUsers.length > 0">
+      <p class="online-label">Online Now:</p>
+      <div class="online-tags">
+        <span class="online-tag" *ngFor="let user of onlineUsers" (click)="targetUsername = user">
+          {{ user }}
+        </span>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <input type="text" [(ngModel)]="targetUsername" placeholder="Enter username to call" class="user-input">
+      <button class="join-btn" (click)="startCall()">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+          <path d="M6.62,10.79C8.06,13.62,10.38,15.94,13.21,17.38L15.41,15.18C15.69,14.9,16.08,14.82,16.43,14.93C17.55,15.3,18.75,15.5,20,15.5A1,1,0,0,1,21,16.5V20A1,1,0,0,1,20,21A17,17,0,0,1,3,4A1,1,0,0,1,4,3H7.5A1,1,0,0,1,8.5,4C8.5,5.25,8.7,6.45,9.07,7.57C9.18,7.92,9.1,8.31,8.82,8.59L6.62,10.79Z"/>
+        </svg>
+        Call
+      </button>
+    </div>
+
+    <!-- Generate Summary Trigger (Only if we have segments from previous call) -->
+    <div class="post-call-actions" *ngIf="transcriptSegments.length > 0">
+      <button class="summary-trigger-btn" (click)="generateSummary()">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+          <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+        </svg>
+        Generate Medical Summary
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isCalling">
+    <h2 class="idle-title">Calling {{ targetUsername }}...</h2>
+    <p class="idle-sub">Waiting for answer</p>
+    <button class="decline-btn-small" (click)="cancelCall()">
+      Cancel
+    </button>
+  </ng-container>
+  <p *ngIf="hangUpMessage" class="hangup-msg">{{ hangUpMessage }}</p>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ACTIVE CALL VIEW
+════════════════════════════════════════════ -->
+<div class="call-view" *ngIf="session && !incomingCall">
+
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <div class="live-dot" [class.recording]="isRecording"></div>
+      <span class="duration-label">{{ callDuration }}</span>
+      <span *ngIf="isRecording" class="rec-badge">● REC</span>
+    </div>
+    <div class="top-bar-center">
+      <div class="identity-info">
+        <span class="my-id">You (<strong>{{ username }}</strong>)</span>
+        <span class="vs">vs</span>
+        <span class="partner-id">Partner (<strong>{{ callerName }}</strong>)</span>
+      </div>
+    </div>
+    <div class="top-bar-right">
+      <button class="icon-btn-sm" (click)="toggleRecording()" [class.active]="isRecording" title="Toggle recording">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+          <circle cx="12" cy="12" r="8"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Remote streams (subscribers) fill the screen -->
+  <div class="remote-area">
+    <app-subscriber
+      *ngFor="let stream of streams"
+      [stream]="stream"
+      [session]="session!"
+      [callerName]="callerName">
+    </app-subscriber>
+
+    <!-- Placeholder when no remote streams yet -->
+    <div class="waiting-remote" *ngIf="streams.length === 0">
+      <div class="waiting-avatar" [class.error-state]="errorMessage">
+        <span>{{ errorMessage ? '!' : getInitials(callerName) }}</span>
+      </div>
+      <p class="waiting-text">{{ errorMessage || 'Connecting to ' + callerName + '...' }}</p>
+      <div class="status-badge">{{ sessionStatus }}</div>
+      <div class="connecting-dots" *ngIf="!errorMessage">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Publisher (self-video PiP) + control bar -->
+  <app-publisher
+    [session]="session!"
+    (endCallRequest)="requestEndCall()">
+  </app-publisher>
+
+  <!-- Live Captions Overlay -->
+  <div class="live-captions-overlay" *ngIf="showCaptions && lastCaption">
+    <div class="caption-bubble">
+      <span class="caption-text">{{ lastCaption }}</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     END CALL CONFIRMATION DIALOG
+════════════════════════════════════════════ -->
+<div class="dialog-backdrop" *ngIf="showEndDialog" (click)="cancelEnd()">
+  <div class="dialog-card" (click)="$event.stopPropagation()">
+    <div class="dialog-icon">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+        <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+      </svg>
+    </div>
+    <h3 class="dialog-title">Leave the call?</h3>
+    <p class="dialog-sub">This call will end for both you and {{ callerName }}.</p>
+    <div class="dialog-actions">
+      <button class="dialog-btn cancel-btn" (click)="cancelEnd()">Stay</button>
+      <button class="dialog-btn leave-btn" (click)="confirmEnd()">Leave</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     MEDICAL SUMMARY MODAL
+     ════════════════════════════════════════════ -->
+<div class="summary-backdrop" *ngIf="showSummaryCard">
+  <div class="summary-card" [class.loading]="isGeneratingSummary">
+    <div class="summary-header">
+      <div class="header-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+        </svg>
+      </div>
+      <h2>Medical Encounter Summary</h2>
+      <button class="close-icon-btn" (click)="closeSummary()">×</button>
+    </div>
+
+    <div class="summary-body">
+      <!-- Loading State -->
+      <div class="summary-loading" *ngIf="isGeneratingSummary">
+        <div class="ai-loader"></div>
+        <p>AI is analyzing the conversation...</p>
+      </div>
+
+      <!-- Result State -->
+      <div class="summary-content" *ngIf="!isGeneratingSummary && medicalSummary">
+        <div class="summary-section accent">
+          <label>Diagnosis</label>
+          <div class="diagnosis-badge">{{ medicalSummary.diagnosis }}</div>
+        </div>
+
+        <div class="summary-grid">
+          <div class="summary-section">
+            <label>Symptoms</label>
+            <ul>
+              <li *ngFor="let item of medicalSummary.symptoms">{{ item }}</li>
+            </ul>
+          </div>
+          <div class="summary-section">
+            <label>Medications</label>
+            <ul>
+              <li *ngFor="let item of medicalSummary.medications">{{ item }}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="summary-section">
+          <label>Doctor's Advice</label>
+          <p>{{ medicalSummary.advice.join('. ') }}</p>
+        </div>
+
+        <div class="footer-info">
+          <span class="info-tag">Duration: {{ medicalSummary.duration }}</span>
+          <span class="info-tag">Follow-up: {{ medicalSummary.follow_up }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="summary-footer" *ngIf="!isGeneratingSummary">
+      <button class="action-btn-secondary" (click)="downloadPDF()">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="margin-right: 8px;">
+          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+        </svg>
+        Download PDF
+      </button>
+      <button class="action-btn-primary" (click)="closeSummary()">Close Summary</button>
+    </div>
+  </div>
+</div>
