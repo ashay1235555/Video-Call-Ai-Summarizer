@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VonageVideoApp.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f1c72e3db520ddc23d2863f2833f05d546fd53ad")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+87dbde9322f7c67c3497eb01c91f3718b766cbcf")]
 [assembly: System.Reflection.AssemblyProductAttribute("VonageVideoApp.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VonageVideoApp.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

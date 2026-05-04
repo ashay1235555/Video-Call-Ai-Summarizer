@@ -88,7 +88,7 @@ OUTPUT FORMAT (STRICT JSON ONLY):
                     .GetProperty("text")
                     .GetString();
 
-                return Ok(generatedText); // This should be the structured JSON string
+                return Content(generatedText, "application/json"); // Return raw JSON directly
             }
             catch (Exception ex)
             {

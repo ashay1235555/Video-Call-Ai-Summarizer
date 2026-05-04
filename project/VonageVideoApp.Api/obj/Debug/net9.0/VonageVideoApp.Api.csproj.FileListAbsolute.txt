@@ -126,9 +126,6 @@ C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\D
 C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.pdb
 C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.genruntimeconfig.cache
 C:\Users\shreyashnaktode\Desktop\vi\project (1)\project\VonageVideoApp.Api\obj\Debug\net9.0\ref\VonageVideoApp.Api.dll
-D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.dll
-D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\refint\VonageVideoApp.Api.dll
-D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.pdb
 D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\appsettings.json
 D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\VonageVideoApp.Api.staticwebassets.endpoints.json
 D:\videoapplication\project\project\VonageVideoApp.Api\bin\Debug\net9.0\private.key
@@ -158,6 +155,7 @@ D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVi
 D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.csproj.CoreCompileInputs.cache
 D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.MvcApplicationPartsAssemblyInfo.cs
 D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.MvcApplicationPartsAssemblyInfo.cache
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.sourcelink.json
 D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\rjimswa.dswa.cache.json
 D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
@@ -166,7 +164,10 @@ D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\staticwe
 D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.build.json.cache
 D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.development.json
 D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVi.C69648BA.Up2Date
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.dll
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\refint\VonageVideoApp.Api.dll
+D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.pdb
 D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\VonageVideoApp.Api.genruntimeconfig.cache
 D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\ref\VonageVideoApp.Api.dll
-D:\videoapplication\project\project\VonageVideoApp.Api\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

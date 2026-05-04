@@ -152,6 +152,11 @@
       </div>
     </div>
     <div class="top-bar-right">
+      <button class="icon-btn-sm" (click)="toggleTranscript()" [class.active]="showTranscript" title="View Transcript">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+          <path d="M21 15h2v2h-2v-2zm0-4h2v2h-2v-2zm0-8h2v2h-2V3zm-4 0h2v2h-2V3zm4 4h2v2h-2V7zm-4 4h2v2h-2v-2zm-4 4h2v2h-2v-2zm0-4h2v2h-2v-2zm0-4h2v2h-2V7zM1 3h3v3H1V3zm0 4h3v3H1V7zm0 4h3v3H1v-3zm0 4h3v3H1v-3zm4-12h8v3H5V3zm0 4h8v3H5V7zm0 4h8v3H5v-3zm0 4h8v3H5v-3z"/>
+        </svg>
+      </button>
       <button class="icon-btn-sm" (click)="toggleRecording()" [class.active]="isRecording" title="Toggle recording">
         <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
           <circle cx="12" cy="12" r="8"/>
@@ -189,9 +194,44 @@
   </app-publisher>
 
   <!-- Live Captions Overlay -->
-  <div class="live-captions-overlay" *ngIf="showCaptions && lastCaption">
-    <div class="caption-bubble">
-      <span class="caption-text">{{ lastCaption }}</span>
+  <div class="live-captions-overlay" *ngIf="showCaptions && (lastCaption || interimCaption || remoteInterimCaption)">
+    <div class="caption-bubble" [class.interim-active]="interimCaption || remoteInterimCaption">
+      <span class="caption-text" *ngIf="lastCaption && !interimCaption && !remoteInterimCaption">{{ lastCaption }}</span>
+      <span class="caption-text interim" *ngIf="interimCaption">{{ interimCaption }}</span>
+      <span class="caption-text interim" *ngIf="remoteInterimCaption && !interimCaption">{{ remoteInterimCaption }}</span>
+    </div>
+  </div>
+
+  <!-- Transcript Sidebar -->
+  <div class="transcript-sidebar" [class.show]="showTranscript">
+    <div class="sidebar-header">
+      <h3>Call Transcript</h3>
+      <div class="sidebar-header-actions">
+        <button class="sidebar-action-btn" (click)="restartTranscript()" title="Restart AI">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+          </svg>
+        </button>
+        <button class="clear-btn" (click)="transcriptSegments = []" title="Clear History">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+            <path d="M15 4V3H9v1H4v2h1v13c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V6h1V4h-5zm2 15H7V6h10v13zM9 8h2v9H9V8zm4 0h2v9h-2V8z"/>
+          </svg>
+        </button>
+        <button class="close-btn" (click)="toggleTranscript()">×</button>
+      </div>
+    </div>
+    <div class="sidebar-content" #transcriptScroll>
+      <div *ngFor="let segment of transcriptSegments" class="transcript-entry">
+        <span class="entry-speaker">{{ segment.speaker }}:</span>
+        <p class="entry-text">{{ segment.text }}</p>
+      </div>
+      <div *ngIf="interimCaption" class="transcript-entry interim">
+        <span class="entry-speaker">{{ username }}:</span>
+        <p class="entry-text">{{ interimCaption }}...</p>
+      </div>
+      <div *ngIf="transcriptSegments.length === 0 && !interimCaption" class="no-transcript">
+        Listening for conversation...
+      </div>
     </div>
   </div>
 </div>
@@ -217,7 +257,7 @@
 
 <!-- ═══════════════════════════════════════════
      MEDICAL SUMMARY MODAL
-     ════════════════════════════════════════════ -->
+════════════════════════════════════════════ -->
 <div class="summary-backdrop" *ngIf="showSummaryCard">
   <div class="summary-card" [class.loading]="isGeneratingSummary">
     <div class="summary-header">

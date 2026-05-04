@@ -19,12 +19,16 @@ export class VideoChatComponent implements OnInit, OnDestroy {
   isRecording: boolean = false;
   archiveId: string | null = null;
   currentSessionId: string | null = null;
-  
+
   // Transcript State
-  transcriptSegments: Array<{speaker: string, text: string}> = [];
+  transcriptSegments: Array<{ speaker: string, text: string }> = [];
   showCaptions: boolean = true;
   lastCaption: string = '';
-  
+  interimCaption: string = '';
+  remoteInterimCaption: string = '';
+  showTranscript: boolean = false;
+  transcriptStatus: string = 'idle';
+
   // Summary State
   medicalSummary: MedicalSummary | null = null;
   isGeneratingSummary: boolean = false;
@@ -32,13 +36,13 @@ export class VideoChatComponent implements OnInit, OnDestroy {
 
   // SignalR & Call States
   username: string = '';
-  userRole: string = 'patient'; 
+  userRole: string = 'patient';
   targetUsername: string = '';
   isLoggedIn: boolean = false;
   incomingCall: boolean = false;
   isCalling: boolean = false;
   callerUsername: string = '';
-  
+
   // UI Display Info
   callerName: string = '';
   callerRole: string = '';
@@ -55,7 +59,7 @@ export class VideoChatComponent implements OnInit, OnDestroy {
   constructor(
     private videoService: VideoService,
     private signalrService: SignalrService,
-    private transcriptService: TranscriptService,
+    public transcriptService: TranscriptService,
     private summaryService: SummaryService,
     private zone: NgZone
   ) { }
@@ -66,7 +70,7 @@ export class VideoChatComponent implements OnInit, OnDestroy {
       this.zone.run(() => {
         console.log('Incoming call from:', caller);
         this.callerUsername = caller;
-        this.callerName = caller; 
+        this.callerName = caller;
         this.callerRole = 'patient'; // Default role for display
         this.incomingCall = true;
         this.hangUpMessage = '';
@@ -104,22 +108,53 @@ export class VideoChatComponent implements OnInit, OnDestroy {
       });
     });
 
+    // Listen for transcript status
+    this.transcriptService.status$.subscribe(status => {
+      this.zone.run(() => {
+        this.transcriptStatus = status;
+        console.log('Transcript Status:', status);
+      });
+    });
+
     // --- Transcription Listeners ---
     // 1. Local transcription (Self)
-    this.transcriptService.transcript$.subscribe(text => {
+    this.transcriptService.transcript$.subscribe(data => {
       this.zone.run(() => {
+        console.log('Local transcript received:', data);
+
+        // Broadcast to partner (both interim and final)
         const target = this.callerUsername || this.targetUsername;
         if (target) {
-          this.signalrService.broadcastTranscript(target, text, this.username);
+          this.signalrService.broadcastTranscript(target, data.text, this.username, data.isFinal);
         }
-        this.addTranscriptSegment(this.username, text);
+
+        if (data.isFinal) {
+          this.interimCaption = '';
+          this.addTranscriptSegment(this.username, data.text);
+        } else {
+          // New interim speech started, clear the old "static" caption
+          if (data.text.length > 0) {
+            this.lastCaption = '';
+          }
+          this.interimCaption = data.text;
+        }
       });
     });
 
     // 2. Remote transcription (Partner)
     this.signalrService.transcriptReceived$.subscribe(data => {
       this.zone.run(() => {
-        this.addTranscriptSegment(data.speakerName, data.text);
+        console.log('Remote transcript received:', data);
+        if (data.isFinal) {
+          this.remoteInterimCaption = '';
+          this.addTranscriptSegment(data.speakerName, data.text);
+        } else {
+          // Clear old caption when new remote interim arrives
+          if (data.text.length > 0) {
+            this.lastCaption = '';
+          }
+          this.remoteInterimCaption = data.text;
+        }
       });
     });
   }
@@ -127,10 +162,10 @@ export class VideoChatComponent implements OnInit, OnDestroy {
   private addTranscriptSegment(speaker: string, text: string) {
     this.transcriptSegments.push({ speaker, text });
     this.lastCaption = text;
-    // Auto-clear caption after 5 seconds if no new speech
+    // Auto-clear caption after 10 seconds if no new speech
     setTimeout(() => {
       if (this.lastCaption === text) this.lastCaption = '';
-    }, 5000);
+    }, 10000);
   }
 
   login() {
@@ -152,7 +187,7 @@ export class VideoChatComponent implements OnInit, OnDestroy {
       return;
     }
     this.isCalling = true;
-    this.callerName = this.targetUsername; 
+    this.callerName = this.targetUsername;
     this.hangUpMessage = '';
     console.log('Initiating call to:', this.targetUsername);
     this.signalrService.sendCall(this.targetUsername, this.username);
@@ -194,7 +229,7 @@ export class VideoChatComponent implements OnInit, OnDestroy {
       this.sessionStatus = 'Fetching credentials...';
       const credentials = await this.videoService.getSessionCredentials(roomName);
       console.log('Credentials received for session:', credentials.sessionId);
-      
+
       if (this.session) {
         console.warn('Session already exists, disconnecting before new join.');
         this.session.disconnect();
@@ -273,9 +308,9 @@ export class VideoChatComponent implements OnInit, OnDestroy {
     }
 
     // Safety: If session.connection is not yet set, we treat it as remote (can't be local yet)
-    const isLocal = this.session && this.session.connection && 
-                    stream.connection.connectionId === this.session.connection.connectionId;
-    
+    const isLocal = this.session && this.session.connection &&
+      stream.connection.connectionId === this.session.connection.connectionId;
+
     if (!isLocal) {
       this.zone.run(() => {
         console.log('Evaluating remote stream:', stream.streamId);
@@ -309,6 +344,14 @@ export class VideoChatComponent implements OnInit, OnDestroy {
   confirmEnd() {
     this.showEndDialog = false;
     const target = this.callerUsername || this.targetUsername;
+
+    // Force-broadcast last interim before hanging up
+    if (this.interimCaption && this.interimCaption.trim().length > 0) {
+      if (target) {
+        this.signalrService.broadcastTranscript(target, this.interimCaption, this.username, true);
+      }
+    }
+
     if (target) {
       this.signalrService.hangUp(target, this.username, this.userRole);
     }
@@ -327,6 +370,14 @@ export class VideoChatComponent implements OnInit, OnDestroy {
   private disconnectLocal() {
     this.stopDurationTimer();
     this.callConnected = false;
+
+    // Force-save any remaining interim speech before stopping
+    if (this.interimCaption && this.interimCaption.trim().length > 0) {
+      console.log('Force-finalizing interim speech on disconnect:', this.interimCaption);
+      this.addTranscriptSegment(this.username, this.interimCaption);
+      this.interimCaption = '';
+    }
+
     if (this.session) {
       this.transcriptService.stop(); // Stop transcription
       this.session.disconnect();
@@ -342,6 +393,17 @@ export class VideoChatComponent implements OnInit, OnDestroy {
       return (parts[0][0] + parts[1][0]).toUpperCase();
     }
     return name.substring(0, 2).toUpperCase();
+  }
+
+  toggleTranscript() {
+    this.showTranscript = !this.showTranscript;
+  }
+
+  restartTranscript() {
+    this.transcriptService.stop();
+    setTimeout(() => {
+      this.transcriptService.start();
+    }, 100);
   }
 
   /* ─── Recording ─── */
@@ -411,13 +473,25 @@ export class VideoChatComponent implements OnInit, OnDestroy {
     this.summaryService.generateSummary(fullTranscript).subscribe({
       next: (summary) => {
         this.zone.run(() => {
-          this.medicalSummary = summary;
+          console.log('Summary received:', summary);
+          // Handle cases where backend might return a string instead of object
+          if (typeof summary === 'string') {
+            try {
+              this.medicalSummary = JSON.parse(summary);
+            } catch (e) {
+              console.error('Failed to parse summary string:', e);
+              this.errorMessage = 'Summary received in invalid format.';
+            }
+          } else {
+            this.medicalSummary = summary;
+          }
           this.isGeneratingSummary = false;
         });
       },
       error: (err) => {
         this.zone.run(() => {
           console.error('Summary generation failed', err);
+          this.errorMessage = 'Failed to generate AI summary. Please try again.';
           this.isGeneratingSummary = false;
         });
       }
@@ -430,6 +504,8 @@ export class VideoChatComponent implements OnInit, OnDestroy {
   }
 
   downloadPDF() {
+    console.log('Initiating PDF download...');
+
     // We allow download even if medicalSummary is null by using defaults
     const summary = this.medicalSummary || {
       diagnosis: 'No diagnosis recorded',
@@ -440,6 +516,8 @@ export class VideoChatComponent implements OnInit, OnDestroy {
       duration: this.callDuration
     };
 
+    console.log('Using summary data for PDF:', summary);
+
     const doc = new jsPDF();
     const timestamp = new Date().toLocaleString();
     const filename = `Medical_Summary_${new Date().getTime()}.pdf`;
@@ -448,7 +526,7 @@ export class VideoChatComponent implements OnInit, OnDestroy {
     doc.setFontSize(22);
     doc.setTextColor(44, 62, 80); // Dark Blue
     doc.text('Medical Encounter Summary', 14, 22);
-    
+
     doc.setFontSize(10);
     doc.setTextColor(127, 140, 141); // Gray
     doc.text(`Generated on: ${timestamp}`, 14, 30);
