@@ -12,7 +12,7 @@ export class SignalrService {
   public incomingCall$ = new Subject<string>();
   public callAnswered$ = new Subject<{ targetUsername: string, accepted: boolean }>();
   public hangUp$ = new Subject<{ username: string, role: string }>();
-  public transcriptReceived$ = new Subject<{ speakerName: string, text: string, isFinal: boolean }>();
+  public transcriptReceived$ = new Subject<{ speakerName: string, speakerRole: string, text: string, isFinal: boolean }>();
 
   public startConnection(username: string) {
     const normalizedUsername = username.toLowerCase().trim();
@@ -41,8 +41,8 @@ export class SignalrService {
       this.hangUp$.next({ username, role });
     });
 
-    this.hubConnection.on('ReceiveTranscriptSegment', (speakerName: string, text: string, isFinal: boolean) => {
-      this.transcriptReceived$.next({ speakerName, text, isFinal });
+    this.hubConnection.on('ReceiveTranscriptSegment', (speakerName: string, speakerRole: string, text: string, isFinal: boolean) => {
+      this.transcriptReceived$.next({ speakerName, speakerRole, text, isFinal });
     });
   }
 
@@ -62,8 +62,8 @@ export class SignalrService {
       .catch(err => console.error(err));
   }
 
-  public broadcastTranscript(targetUsername: string, text: string, speakerName: string, isFinal: boolean) {
-    this.hubConnection?.invoke('SendTranscriptSegment', targetUsername.toLowerCase().trim(), text, speakerName, isFinal)
+  public broadcastTranscript(targetUsername: string, text: string, speakerName: string, speakerRole: string, isFinal: boolean) {
+    this.hubConnection?.invoke('SendTranscriptSegment', targetUsername.toLowerCase().trim(), text, speakerName, speakerRole, isFinal)
       .catch(err => console.error(err));
   }
 }

@@ -21,7 +21,7 @@ export class VideoChatComponent implements OnInit, OnDestroy {
   currentSessionId: string | null = null;
 
   // Transcript State
-  transcriptSegments: Array<{ speaker: string, text: string }> = [];
+  transcriptSegments: Array<{ speaker: string, role: string, text: string }> = [];
   showCaptions: boolean = true;
   lastCaption: string = '';
   interimCaption: string = '';
@@ -125,12 +125,12 @@ export class VideoChatComponent implements OnInit, OnDestroy {
         // Broadcast to partner (both interim and final)
         const target = this.callerUsername || this.targetUsername;
         if (target) {
-          this.signalrService.broadcastTranscript(target, data.text, this.username, data.isFinal);
+          this.signalrService.broadcastTranscript(target, data.text, this.username, this.userRole, data.isFinal);
         }
 
         if (data.isFinal) {
           this.interimCaption = '';
-          this.addTranscriptSegment(this.username, data.text);
+          this.addTranscriptSegment(this.username, this.userRole, data.text);
         } else {
           // New interim speech started, clear the old "static" caption
           if (data.text.length > 0) {
@@ -147,7 +147,7 @@ export class VideoChatComponent implements OnInit, OnDestroy {
         console.log('Remote transcript received:', data);
         if (data.isFinal) {
           this.remoteInterimCaption = '';
-          this.addTranscriptSegment(data.speakerName, data.text);
+          this.addTranscriptSegment(data.speakerName, data.speakerRole, data.text);
         } else {
           // Clear old caption when new remote interim arrives
           if (data.text.length > 0) {
@@ -159,8 +159,8 @@ export class VideoChatComponent implements OnInit, OnDestroy {
     });
   }
 
-  private addTranscriptSegment(speaker: string, text: string) {
-    this.transcriptSegments.push({ speaker, text });
+  private addTranscriptSegment(speaker: string, role: string, text: string) {
+    this.transcriptSegments.push({ speaker, role, text });
     this.lastCaption = text;
     // Auto-clear caption after 10 seconds if no new speech
     setTimeout(() => {
@@ -348,7 +348,7 @@ export class VideoChatComponent implements OnInit, OnDestroy {
     // Force-broadcast last interim before hanging up
     if (this.interimCaption && this.interimCaption.trim().length > 0) {
       if (target) {
-        this.signalrService.broadcastTranscript(target, this.interimCaption, this.username, true);
+        this.signalrService.broadcastTranscript(target, this.interimCaption, this.username, this.userRole, true);
       }
     }
 
@@ -374,7 +374,7 @@ export class VideoChatComponent implements OnInit, OnDestroy {
     // Force-save any remaining interim speech before stopping
     if (this.interimCaption && this.interimCaption.trim().length > 0) {
       console.log('Force-finalizing interim speech on disconnect:', this.interimCaption);
-      this.addTranscriptSegment(this.username, this.interimCaption);
+      this.addTranscriptSegment(this.username, this.userRole, this.interimCaption);
       this.interimCaption = '';
     }
 
@@ -467,7 +467,7 @@ export class VideoChatComponent implements OnInit, OnDestroy {
     this.showSummaryCard = true; // Show it early with a loading state
 
     const fullTranscript = this.transcriptSegments
-      .map(s => `${s.speaker}: ${s.text}`)
+      .map(s => `${s.speaker} (${s.role}): ${s.text}`)
       .join('\n');
 
     this.summaryService.generateSummary(fullTranscript).subscribe({

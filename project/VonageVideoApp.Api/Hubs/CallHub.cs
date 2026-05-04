@@ -64,12 +64,12 @@ namespace VonageVideoApp.Api.Hubs
             }
         }
 
-        public async Task SendTranscriptSegment(string targetUsername, string text, string speakerName, bool isFinal)
+        public async Task SendTranscriptSegment(string targetUsername, string text, string speakerName, string speakerRole, bool isFinal)
         {
             targetUsername = targetUsername.ToLowerInvariant().Trim();
             if (OnlineUsers.TryGetValue(targetUsername, out string? targetConnectionId))
             {
-                await Clients.Client(targetConnectionId).SendAsync("ReceiveTranscriptSegment", speakerName, text, isFinal);
+                await Clients.Client(targetConnectionId).SendAsync("ReceiveTranscriptSegment", speakerName, speakerRole, text, isFinal);
             }
         }
     }

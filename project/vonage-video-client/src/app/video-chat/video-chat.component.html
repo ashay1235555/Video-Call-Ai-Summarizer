@@ -222,7 +222,7 @@
     </div>
     <div class="sidebar-content" #transcriptScroll>
       <div *ngFor="let segment of transcriptSegments" class="transcript-entry">
-        <span class="entry-speaker">{{ segment.speaker }}:</span>
+        <span class="entry-speaker">{{ segment.speaker }} <small>({{ segment.role }})</small>:</span>
         <p class="entry-text">{{ segment.text }}</p>
       </div>
       <div *ngIf="interimCaption" class="transcript-entry interim">

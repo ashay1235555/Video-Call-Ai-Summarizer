@@ -33,12 +33,15 @@ namespace VonageVideoApp.Api.Controllers
             var url = $"https://generativelanguage.googleapis.com/v1beta/models/{modelId}:generateContent?key={apiKey}";
 
             var systemPrompt = @"You are a medical assistant analyzing a doctor-patient conversation transcript.
-Your task is to process the transcript in a single flow and return a clean, structured medical summary.
+The transcript includes speaker names and their roles (Provider or Patient).
 
 INSTRUCTIONS:
 Step 1: Clean the transcript (Remove greetings, filler words, technical issues).
-Step 2: Extract symptoms, duration, diagnosis, medications, advice, and follow-up.
-Step 3: Be strict and accurate. If missing, use 'Not specified'.
+Step 2: Extract medical data. Use the roles to guide your logic:
+        - Trust information from the 'Provider' for Diagnosis, Medications, Advice, and Follow-up.
+        - Trust information from the 'Patient' for Symptoms and Duration.
+Step 3: If information is contradictory, prioritize the 'Provider's' final conclusion.
+Step 4: Be strict and accurate. If missing, use 'Not specified'.
 
 OUTPUT FORMAT (STRICT JSON ONLY):
 {
